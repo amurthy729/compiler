@@ -30,21 +30,15 @@ class Token {
     private:
     const TokenType type;
     const string lexeme;
-    const variant<int, double, string, monostate> literal;
+    const variant<bool, int, float, string, monostate> literal;
     const int line;
-    /*
-    * A longer discussion about void* literal
-    * When we are creating a token, we do not know if there is a literal value until we know the token type
-    * Even if we do know the type, the literal value is obviously dependent on the lexeme
-    * Hence, we need to use void* and pass in a pointer to the memory because we will know what type it is when we are instantiating the object
-    */
 
     public:
     Token(); // default constructor. if this is ever called, i fucked up somewhere.
-    Token(TokenType type, string lexeme, variant<int, double, string, monostate> literal, int line); // parameterized constructor
+    Token(TokenType type, string lexeme, variant<bool, int, float, string, monostate> literal, int line); // parameterized constructor
     TokenType getType();
     string getLexeme();
-    void* getLiteral();
+    variant<bool, int, float, string, monostate> getLiteral();
     int getLine();
 
     string tokenToString();
