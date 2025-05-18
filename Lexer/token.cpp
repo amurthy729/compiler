@@ -1,4 +1,5 @@
 #include "token.h"
+#include "scanner.h"
 
 string typeToString(TokenType type)
 {
@@ -73,7 +74,6 @@ int Token::getLine()
 {
     return this->line;
 }
-
 string Token::tokenToString()
 {
     string lit;

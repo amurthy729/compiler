@@ -9,15 +9,21 @@ using std::vector;
 class Scanner {
     private:
     const string source;
-    const vector<Token> tokens;
+    vector<Token> tokens;
     int start = 0;
     int current = 0;
     int line = 1;
+    bool isAtEnd();
+    void scanToken();
+    char advance();
+    void addToken(TokenType type);
+    void addToken(TokenType type, std::variant<bool, int, float, string, monostate> literal);
 
     public:
     Scanner(string source);
     vector<Token> scanTokens();
-    bool isAtEnd();
+    int getLine();
+    int getCurrent();
 };
 
 #endif

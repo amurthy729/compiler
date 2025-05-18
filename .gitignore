@@ -1,3 +1,10 @@
-*.o
 .vscode
-Lexer/build/testScanner
+*.o
+*.exe
+*.out
+.DS_Store
+*.swp
+*.bak
+*.log
+*.tmp
+/build/
